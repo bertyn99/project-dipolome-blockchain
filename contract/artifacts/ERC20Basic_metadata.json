@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.5.17+commit.d19bba13"
+		"version": "0.6.1+commit.e6f7d5a4"
 	},
 	"language": "Solidity",
 	"output": {
@@ -56,7 +56,6 @@
 				"type": "event"
 			},
 			{
-				"constant": true,
 				"inputs": [
 					{
 						"internalType": "address",
@@ -77,12 +76,10 @@
 						"type": "uint256"
 					}
 				],
-				"payable": false,
 				"stateMutability": "view",
 				"type": "function"
 			},
 			{
-				"constant": false,
 				"inputs": [
 					{
 						"internalType": "address",
@@ -103,12 +100,10 @@
 						"type": "bool"
 					}
 				],
-				"payable": false,
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
-				"constant": true,
 				"inputs": [
 					{
 						"internalType": "address",
@@ -124,12 +119,10 @@
 						"type": "uint256"
 					}
 				],
-				"payable": false,
 				"stateMutability": "view",
 				"type": "function"
 			},
 			{
-				"constant": true,
 				"inputs": [],
 				"name": "totalSupply",
 				"outputs": [
@@ -139,12 +132,10 @@
 						"type": "uint256"
 					}
 				],
-				"payable": false,
 				"stateMutability": "view",
 				"type": "function"
 			},
 			{
-				"constant": false,
 				"inputs": [
 					{
 						"internalType": "address",
@@ -165,12 +156,10 @@
 						"type": "bool"
 					}
 				],
-				"payable": false,
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
-				"constant": false,
 				"inputs": [
 					{
 						"internalType": "address",
@@ -196,7 +185,6 @@
 						"type": "bool"
 					}
 				],
-				"payable": false,
 				"stateMutability": "nonpayable",
 				"type": "function"
 			}
@@ -214,6 +202,9 @@
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
 		"optimizer": {
 			"enabled": false,
 			"runs": 200
@@ -222,10 +213,10 @@
 	},
 	"sources": {
 		"contract/token.sol": {
-			"keccak256": "0xfbf5172b9dee606a164dbd843b280b773a8f193f86d95bfb67ee694f2f709eda",
+			"keccak256": "0x059457c6f53710dd7a53ccf050c515faf6aac1b5569fe133688e174c45a29732",
 			"urls": [
-				"bzz-raw://b330d573308685e60390fc3cb2556251090bfbf7809f73840423145d449164ed",
-				"dweb:/ipfs/QmbQQC8Zo4RHGzPowkyM9o4JzmFojuRgXd86F6gsBgLwtT"
+				"bzz-raw://63fd4c47087d1668f537aa0f57bf7034fb09e6e1d4fff1dd186d888fef1d93b4",
+				"dweb:/ipfs/QmWkx3Fwc2HNQC4XDXVnh2phURjB1anMMe6tgDoA8WtNKW"
 			]
 		}
 	},

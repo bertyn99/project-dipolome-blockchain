@@ -1,9 +1,10 @@
-pragma solidity >=0.5.0 <0.6.0;
+pragma solidity >=0.5.6 <0.6.2;
+pragma experimental ABIEncoderV2;
 
 import "./token.sol";
 
 contract Entities {
-        address private owner;
+    address private owner;
     address private token;
 
     struct Etablisement {
@@ -132,49 +133,49 @@ contract Entities {
         require(id != 0, "not etablisement");
         Diplome memory d;
         d.ID_Titulaire = ID_Titulaire;
-        d.Nom_Etablisement = Etablisements[id].Nom_Etablisement;
+        d.Nom_Etablisement_Enseignement_Superieur = Etablisements[id].Nom_Etablisement;
         ajouter_diplome(d);
     }
 
     function evaluer(
         uint256 EtudiantID,
-        string memory Sujet_pfe,
+        string memory Sujet_PFE,
         string memory Entreprise_Stage_PFE,
-        string memory Maitre_stage,
+        string memory NomPrenom_MaitreDuStage,
         uint256 Date_debut_stage,
         uint256 Date_fin_stage,
         string memory Evaluation
     ) public {
         uint256 id = AddressEntreprises[msg.sender];
         require(id != 0, "no Entreprises");
-        Etudiants[EtudiantID].Sujet_pfe = Sujet_pfe;
+        Etudiants[EtudiantID].Sujet_PFE = Sujet_PFE;
         Etudiants[EtudiantID].Entreprise_Stage_PFE = Entreprise_Stage_PFE;
-        Etudiants[EtudiantID].Maitre_stage = Maitre_stage;
+        Etudiants[EtudiantID].NomPrenom_MaitreDuStage = NomPrenom_MaitreDuStage;
         Etudiants[EtudiantID].Date_debut_stage = Date_debut_stage;
         Etudiants[EtudiantID].Date_fin_stage = Date_fin_stage;
         Etudiants[EtudiantID].Evaluation = Evaluation;
         require(
-            Token(token).allowance(owner, address(this)) >= 15,
+            MyToken(token).allowance(owner, address(this)) >= 15,
             "token not allowed"
         );
         require(
-            Token(token).transferFrom(owner, msg.sender, 15),
+            MyToken(token).transferFrom(owner, msg.sender, 15),
             "transfert fail"
         );
     }
 
-    event verifierresult(bool, Diplome);
+    event verifierresult(Diplome);
 
-    function verifier(uint256 DiplomeID) public returns (bool, Diplome memory) {
+    function verifier(uint256 DiplomeID) public returns (Diplome memory) {
         require(
-            Token(token).allowance(msg.sender, address(this)) >= 10,
+            MyToken(token).allowance(msg.sender, address(this)) >= 10,
             "token not allowed"
         );
         require(
-            Token(token).transferFrom(msg.sender, owner, 10), // token transfer
+            MyToken(token).transferFrom(msg.sender, owner, 10), // token transfer
             "transfert fail"
         );
-        emit verifierresult(Diplomes[DiplomeID]);
-        return (Diplomes[DiplomeID]);
+        //emit verifierresult(Diplomes[DiplomeID]);
+        return Diplomes[DiplomeID];
     }
 }
