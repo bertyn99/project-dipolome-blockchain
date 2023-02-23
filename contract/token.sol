@@ -60,7 +60,6 @@ contract StandardToken is ERC20Basic{
     function allowance(address owner, address spender) public view override returns (uint256){
         return _allowed[owner][spender];
     }
-    
 
 }
 
@@ -70,16 +69,43 @@ contract MyToken is StandardToken {
     uint32 public _decimals;
     mapping (address => mapping (address => uint256)) private _allowances;
     mapping (address => bool) private _entreprises;
-    uint256 public constant tauxEther = 100;
-    uint256 public constant fraisVerification = 10;
-    uint256 public constant fraisEvaluation = 15;
+    uint256 public constant etherRate = 100;
+    uint256 public constant verificationCosts = 10;
+    uint256 public constant evaluationCosts = 15;
 
     constructor( )public{
-        _name="BertToken";
-        _symbol="BT";
+        _name="schoolToken";
+        _symbol="ST";
         _decimals=0;
         _totalSupply=1000;
         _balances[msg.sender]=_totalSupply;
+    }
+    
+    function acheterTokens(uint256 nbToken) public payable {
+        require(nbToken > 0, "Le montant envoyé doit être supérieur à 0");
+        uint256 amount = nbToken * etherRate;
+        require(amount <= _totalSupply - _balances[msg.sender], "La vente est terminée");
+        _balances[msg.sender] += amount;
+        _balances[address(this)] -= amount;
+        emit Transfer(address(this), msg.sender, amount);
+    }
+
+    function payerVerification(uint256 amount) public returns (bool) {
+        require(_balances[msg.sender] >= amount + verificationCosts, "Fonds insuffisants");
+        _balances[msg.sender] -= amount + verificationCosts;
+        _balances[address(this)] += amount + verificationCosts;
+        emit Transfer(msg.sender, address(this), verificationCosts);
+        emit Transfer(msg.sender, address(this), amount);
+        return true;
+    }
+
+    function payerEvaluation(uint256 amount) public returns (bool) {
+        require(_entreprises[msg.sender], "Seules les entreprises autorisées peuvent utiliser cette fonction");
+        require(_balances[msg.sender] >= amount + evaluationCosts, "Fonds insuffisants");
+        _balances[address(this)] += amount + evaluationCosts;
+        emit Transfer(msg.sender, address(this), evaluationCosts);
+        emit Transfer(msg.sender, address(this), amount);
+        return true;
     }
 
 }

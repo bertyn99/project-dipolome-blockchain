@@ -134,6 +134,19 @@
 			{
 				"inputs": [
 					{
+						"internalType": "uint256",
+						"name": "nbToken",
+						"type": "uint256"
+					}
+				],
+				"name": "acheterTokens",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address",
 						"name": "owner",
 						"type": "address"
@@ -200,7 +213,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "fraisEvaluation",
+				"name": "etherRate",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -213,7 +226,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "fraisVerification",
+				"name": "evaluationCosts",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -225,16 +238,41 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "tauxEther",
-				"outputs": [
+				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "",
+						"name": "amount",
 						"type": "uint256"
 					}
 				],
-				"stateMutability": "view",
+				"name": "payerEvaluation",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "payerVerification",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -302,6 +340,19 @@
 				],
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "verificationCosts",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -328,10 +379,10 @@
 	},
 	"sources": {
 		"contract/token.sol": {
-			"keccak256": "0x059457c6f53710dd7a53ccf050c515faf6aac1b5569fe133688e174c45a29732",
+			"keccak256": "0x2432da6d272e0466db11e13d1adf74f6217d98026a8bf3fd85bab76a6562461e",
 			"urls": [
-				"bzz-raw://63fd4c47087d1668f537aa0f57bf7034fb09e6e1d4fff1dd186d888fef1d93b4",
-				"dweb:/ipfs/QmWkx3Fwc2HNQC4XDXVnh2phURjB1anMMe6tgDoA8WtNKW"
+				"bzz-raw://f92c25f8b055d1266c0c00fb4125bfe6b085a9f7c6c53bb433fa989f42f3c0e6",
+				"dweb:/ipfs/QmVoY6nBhm7wbws8J4wGcx9muN6N9SQXucz2LA7q3SeB77"
 			]
 		}
 	},

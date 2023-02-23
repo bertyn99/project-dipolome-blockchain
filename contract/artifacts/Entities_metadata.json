@@ -586,17 +586,17 @@
 	},
 	"sources": {
 		"contract/entities.sol": {
-			"keccak256": "0x34f8372355c17b6f9a605f80ed9654f5a129d03ff53ac3991f63c4e03b9d79dd",
+			"keccak256": "0xb149bd3dd3054ad23c2c7f8fde20eb46e3396c885c579ec903c972f4d3f8005a",
 			"urls": [
-				"bzz-raw://b96129db801603dc9dacb6daeb2134cc9439c147643f34d42d419d214943614b",
-				"dweb:/ipfs/QmWEeESsiexXTimCeZTPBySzaRUjNo4ofxuLUtYfJeKC1U"
+				"bzz-raw://70f384cb73c70fc30d5ef7f8831e75dc4f3b00185cbcbbf02fa2dc699c8bc4cb",
+				"dweb:/ipfs/QmVFadfV5xy17SrFQYYANRD4wbMUxChbnH2xA7ptG4H11c"
 			]
 		},
 		"contract/token.sol": {
-			"keccak256": "0x059457c6f53710dd7a53ccf050c515faf6aac1b5569fe133688e174c45a29732",
+			"keccak256": "0x2432da6d272e0466db11e13d1adf74f6217d98026a8bf3fd85bab76a6562461e",
 			"urls": [
-				"bzz-raw://63fd4c47087d1668f537aa0f57bf7034fb09e6e1d4fff1dd186d888fef1d93b4",
-				"dweb:/ipfs/QmWkx3Fwc2HNQC4XDXVnh2phURjB1anMMe6tgDoA8WtNKW"
+				"bzz-raw://f92c25f8b055d1266c0c00fb4125bfe6b085a9f7c6c53bb433fa989f42f3c0e6",
+				"dweb:/ipfs/QmVoY6nBhm7wbws8J4wGcx9muN6N9SQXucz2LA7q3SeB77"
 			]
 		}
 	},

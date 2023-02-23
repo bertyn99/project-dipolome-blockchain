@@ -106,7 +106,6 @@ contract Entities {
         Diplomes[NbDiplomes] = d;
     }
 
-    //
     function ajouter_etablisement(string memory Nom) public {
         Etablisement memory e;
         e.Nom_Etablisement = Nom;
@@ -131,6 +130,8 @@ contract Entities {
     function ajouter_diplome(uint256 ID_Titulaire) public {
         uint256 id = AddressEtablisements[msg.sender];
         require(id != 0, "not etablisement");
+        Etudiant memory student = Etudiants[ID_Titulaire];
+        require(bytes(student.Nom).length != 0, "Student doesn't exist");
         Diplome memory d;
         d.ID_Titulaire = ID_Titulaire;
         d.Nom_Etablisement_Enseignement_Superieur = Etablisements[id].Nom_Etablisement;
