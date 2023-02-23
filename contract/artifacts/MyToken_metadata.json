@@ -6,6 +6,12 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
 				"anonymous": false,
 				"inputs": [
 					{
@@ -70,6 +76,51 @@
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "_decimals",
+				"outputs": [
+					{
+						"internalType": "uint32",
+						"name": "",
+						"type": "uint32"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "_name",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "_symbol",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
 					}
 				],
 				"payable": false,
@@ -246,7 +297,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"token.sol": "StandardToken"
+			"contract/token.sol": "MyToken"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -257,7 +308,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"token.sol": {
+		"contract/token.sol": {
 			"keccak256": "0xb528136c0b940143bfa81fdd4e202d62e8ab291dbdbdb37791e94264fc4592aa",
 			"urls": [
 				"bzz-raw://c9ff6b2001151ac8713ec98b2a4190cce2580307bfb1de990c01a613beb36735",

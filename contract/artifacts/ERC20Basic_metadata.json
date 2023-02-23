@@ -210,7 +210,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"token.sol": "ERC20Basic"
+			"contract/token.sol": "ERC20Basic"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -221,7 +221,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"token.sol": {
+		"contract/token.sol": {
 			"keccak256": "0xb528136c0b940143bfa81fdd4e202d62e8ab291dbdbdb37791e94264fc4592aa",
 			"urls": [
 				"bzz-raw://c9ff6b2001151ac8713ec98b2a4190cce2580307bfb1de990c01a613beb36735",
