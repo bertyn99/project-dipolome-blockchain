@@ -173,10 +173,9 @@ contract Entities {
             "token not allowed"
         );
         require(
-            MyToken(token).transferFrom(msg.sender, owner, 10), // token transfer
+            MyToken(token).transferFrom(msg.sender, owner, 10),
             "transfert fail"
         );
-        //emit verifierresult(Diplomes[DiplomeID]);
         return Diplomes[DiplomeID];
     }
 }
