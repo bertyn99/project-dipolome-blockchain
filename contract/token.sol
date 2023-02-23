@@ -62,6 +62,12 @@ contract MyToken is StandardToken {
     string public _name;
     string public _symbol;
     uint32 public _decimals;
+    mapping (address => uint256) private _balances;
+    mapping (address => mapping (address => uint256)) private _allowances;
+    mapping (address => bool) private _entreprises;
+    uint256 public constant tauxEther = 100;
+    uint256 public constant fraisVerification = 10;
+    uint256 public constant fraisEvaluation = 15;
 
     constructor( )public{
         _name="BertToken";
