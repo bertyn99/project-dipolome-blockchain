@@ -16,8 +16,7 @@ contract Entities {
     }
 
     struct Diplome {
-        bool exist;
-        uint256 id_Titulaire;
+        uint256 ID_Titulaire;
         string Nom_Etablisement_Enseignement_Superieur;
         uint256 ID_EES;
         string Pays;
@@ -28,7 +27,6 @@ contract Entities {
     }
 
     struct Etudiant {
-        bool exist;
         string Nom;
         string Prenom;
         string Date_de_naisance;
@@ -98,28 +96,25 @@ contract Entities {
     }
 
     function ajouter_etudiant(Etudiant memory e) private {
-        // etablisement
-        e.exist = true;
         NbEtudiants += 1;
         Etudiants[NbEtudiants] = e;
     }
 
     function ajouter_diplome(Diplome memory d) private {
-        d.exist = true;
         NbDiplomes += 1;
         Diplomes[NbDiplomes] = d;
     }
 
     //
-    function ajouter_etablisement(string memory nom) public {
+    function ajouter_etablisement(string memory Nom) public {
         Etablisement memory e;
-        e.nom_etablisement = nom;
+        e.Nom_Etablisement = Nom;
         ajouter_etablisement(e, msg.sender);
     }
 
-    function ajouter_entreprise(string memory nom) public {
+    function ajouter_entreprise(string memory Nom) public {
         Entreprise memory e;
-        e.Nom = nom;
+        e.Nom = Nom;
         ajouter_entreprise(e, msg.sender);
     }
 
@@ -132,20 +127,19 @@ contract Entities {
         ajouter_etudiant(e);
     }
 
-    function ajouter_diplome(uint256 id_titulaire) public {
+    function ajouter_diplome(uint256 ID_Titulaire) public {
         uint256 id = AddressEtablisements[msg.sender];
         require(id != 0, "not etablisement");
-        require(Etudiants[id_titulaire].exist == true, "not Etudiants");
         Diplome memory d;
-        d.id_titulaire = id_titulaire;
-        d.nom_etablisement = Etablisements[id].nom_etablisement;
+        d.ID_Titulaire = ID_Titulaire;
+        d.Nom_Etablisement = Etablisements[id].Nom_Etablisement;
         ajouter_diplome(d);
     }
 
     function evaluer(
-        uint256 etudiantid,
+        uint256 EtudiantID,
         string memory Sujet_pfe,
-        string memory Entreprise_stage_pfe,
+        string memory Entreprise_Stage_PFE,
         string memory Maitre_stage,
         uint256 Date_debut_stage,
         uint256 Date_fin_stage,
@@ -153,13 +147,12 @@ contract Entities {
     ) public {
         uint256 id = AddressEntreprises[msg.sender];
         require(id != 0, "no Entreprises");
-        require(Etudiants[etudiantid].exist == true, "not Etudiants");
-        Etudiants[etudiantid].Sujet_pfe = Sujet_pfe;
-        Etudiants[etudiantid].Entreprise_stage_pfe = Entreprise_stage_pfe;
-        Etudiants[etudiantid].Maitre_stage = Maitre_stage;
-        Etudiants[etudiantid].Date_debut_stage = Date_debut_stage;
-        Etudiants[etudiantid].Date_fin_stage = Date_fin_stage;
-        Etudiants[etudiantid].Evaluation = Evaluation;
+        Etudiants[EtudiantID].Sujet_pfe = Sujet_pfe;
+        Etudiants[EtudiantID].Entreprise_Stage_PFE = Entreprise_Stage_PFE;
+        Etudiants[EtudiantID].Maitre_stage = Maitre_stage;
+        Etudiants[EtudiantID].Date_debut_stage = Date_debut_stage;
+        Etudiants[EtudiantID].Date_fin_stage = Date_fin_stage;
+        Etudiants[EtudiantID].Evaluation = Evaluation;
         require(
             Token(token).allowance(owner, address(this)) >= 15,
             "token not allowed"
@@ -172,7 +165,7 @@ contract Entities {
 
     event verifierresult(bool, Diplome);
 
-    function verifier(uint256 diplomeid) public returns (bool, Diplome memory) {
+    function verifier(uint256 DiplomeID) public returns (bool, Diplome memory) {
         require(
             Token(token).allowance(msg.sender, address(this)) >= 10,
             "token not allowed"
@@ -181,7 +174,7 @@ contract Entities {
             Token(token).transferFrom(msg.sender, owner, 10), // token transfer
             "transfert fail"
         );
-        emit verifierresult(Diplomes[diplomeid].exist, Diplomes[diplomeid]);
-        return (Diplomes[diplomeid].exist, Diplomes[diplomeid]);
+        emit verifierresult(Diplomes[DiplomeID]);
+        return (Diplomes[DiplomeID]);
     }
 }

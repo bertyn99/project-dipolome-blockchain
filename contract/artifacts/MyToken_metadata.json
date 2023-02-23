@@ -218,6 +218,51 @@
 			{
 				"constant": true,
 				"inputs": [],
+				"name": "fraisEvaluation",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "fraisVerification",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "tauxEther",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
 				"name": "totalSupply",
 				"outputs": [
 					{
@@ -309,10 +354,10 @@
 	},
 	"sources": {
 		"contract/token.sol": {
-			"keccak256": "0xb528136c0b940143bfa81fdd4e202d62e8ab291dbdbdb37791e94264fc4592aa",
+			"keccak256": "0xfbf5172b9dee606a164dbd843b280b773a8f193f86d95bfb67ee694f2f709eda",
 			"urls": [
-				"bzz-raw://c9ff6b2001151ac8713ec98b2a4190cce2580307bfb1de990c01a613beb36735",
-				"dweb:/ipfs/QmX9UcwcFpPET99XstRXXQSaKakr1Z8MDG5jGKf49yrJ7H"
+				"bzz-raw://b330d573308685e60390fc3cb2556251090bfbf7809f73840423145d449164ed",
+				"dweb:/ipfs/QmbQQC8Zo4RHGzPowkyM9o4JzmFojuRgXd86F6gsBgLwtT"
 			]
 		}
 	},
